@@ -1,9 +1,6 @@
 ({
-    block: 'button',
-    name: 'name',
-    icon: {
-        block: 'icon',
-        url: 'arrow.svg'
-    },
-    text: 'submit'
+    block: 'b',
+    js: true,
+    attrs: { id: 'name' },
+    content: 'Hello'
 });

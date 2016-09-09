@@ -1,30 +1,17 @@
-block('button')(
-    tag()('button'),
-    attrs()(function() {
-        return {
-            role: 'button',
-            name: this.ctx.name
-        };
-    }),
-    content()(
-        function() {
-            var ctx = this.ctx,
-                content = [ctx.icon];
-            'text' in ctx && content.push({ elem: 'text', content: ctx.text });
-            return content;
-        },
-        match(function() { return typeof this.ctx.content !== 'undefined'; })(function() {
-            return this.ctx.content;
-        })
-    )
-);
+block('b')(
+    // now all modes are rewrite bemjson values
+    js()
+        (false),
 
-block('icon')(
-    tag()('span'),
-    attrs()(function() {
-        var attrs = {},
-            url = this.ctx.url;
-        if (url) attrs.style = 'background-image:url(' + url + ')';
-        return attrs;
-    })
+    // if you want add anything you can use add*() mode:
+    addAttrs()
+        (function() { return { role: 'greetings' }; }),
+
+    // now you can use mods(), elemMods(), addMods(), addElemMods():
+    addMods()
+        (function() { return { type: 'awesome' }; }),
+
+    // Now you can use appendContent() and prependContent() modes
+    appendContent()
+        (', templates!')
 );
